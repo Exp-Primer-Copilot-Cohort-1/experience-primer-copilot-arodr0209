@@ -66,4 +66,5 @@ router.put('/api/comments/:id', async (req, res) => {
 router.delete('/api/comments/:id', async (req, res) => {
     const comment = await Comment.findByIdAndRemove(req.params.id);
     if (!comment) return res.status(404).send('The comment with the given ID was not found');
-    res
+    res.send(comment);
+})
